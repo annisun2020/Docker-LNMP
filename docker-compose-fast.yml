@@ -9,7 +9,7 @@ services:
     expose:
       - "9000"
     volumes:
-      - ./www:/export/www
+      - /export/www:/export/www
       - ./docker/log/cgi:/var/log/php-fpm
     depends_on:
       - mysql
@@ -26,7 +26,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./www:/export/www
+      - /export/www:/export/www
       - ./docker/config/proxy/conf.d:/etc/nginx/conf.d
       - ./docker/log/proxy:/var/log/nginx
     depends_on:

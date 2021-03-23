@@ -5,6 +5,7 @@ RUN yum install -y epel-release &&\
 
 RUN yum install -y --enablerepo=remi --enablerepo=remi-php72 \
     php \
+    	php-soap \
 	php-opcache \
 	php-devel \
 	php-mbstring \
@@ -58,6 +59,13 @@ RUN wget https://github.com/arnaud-lb/php-rdkafka/archive/3.0.5.tar.gz &&\
 COPY docker-entrypoint.sh /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+RUN mkdir -p /export/www/tmp/report_manage_system/email_enclosure
+RUN mkdir -p /export/www/tmp/report_manage_system/upload_file
+RUN mkdir -p /export/www/tmp/report_manage_system/rsync_file
+RUN mkdir -p /export/www/tmp/report_manage_system/upload_file_sku
+RUN mkdir -p /export/www/normal/sending
+RUN chmod -R 777 /export/www/
 
 RUN sed -i '/session    required   pam_loginuid.so/c\#session    required   pam_loginuid.so' /etc/pam.d/crond
 

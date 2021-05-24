@@ -65,7 +65,7 @@ git clone https://github.com/duiying/Docker-LNMP.git
 # 进入目录
 cd Docker-LNMP
 # 容器编排（使用加速版，推荐，耗时约 10 分钟）
-docker-compose -f docker-compose-fast.yml up -d
+docker-compose up -d
 ```
 
 ### 测试

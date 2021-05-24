@@ -11,6 +11,7 @@ services:
     volumes:
       - /export/www:/export/www
       - ./docker/log/cgi:/var/log/php-fpm
+      - /var/tmp/:/var/tmp
     depends_on:
       - mysql
       - redis

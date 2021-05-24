@@ -12,6 +12,7 @@ services:
       - /export/www:/export/www
       - ./docker/log/cgi:/var/log/php-fpm
       - /var/tmp/:/var/tmp
+      - /export/scripts/system:/export/scripts/system
     depends_on:
       - mysql
       - redis
@@ -30,6 +31,8 @@ services:
       - /export/www:/export/www
       - ./docker/config/proxy/conf.d:/etc/nginx/conf.d
       - ./docker/log/proxy:/var/log/nginx
+      - /var/tmp/:/var/tmp
+      - /export/scripts/system:/export/scripts/system
     depends_on:
       - cgi
     links:
